@@ -4,7 +4,7 @@ export default function initChatDataBase() {
 
   db.serialize(() => {
     const queryUser = `CREATE TABLE IF NOT EXISTS user (
-      id INT PRIMARY KEY,
+      id INT,
       firstname VARCHAR(100),
       lastname VARCHAR(100),
       username VARCHAR(100) NOT NULL,
@@ -15,7 +15,7 @@ export default function initChatDataBase() {
     db.run(queryUser);
 
     const querySession = `CREATE TABLE IF NOT EXISTS chat_session (
-      id INT PRIMARY KEY,
+      id INT,
       user_id INT NOT NULL,
       username VARCHAR(100),
       FOREIGN KEY (user_id) REFERENCES user(id),
@@ -24,7 +24,7 @@ export default function initChatDataBase() {
     db.run(querySession);
 
     const queryTopic = `CREATE TABLE IF NOT EXISTS topic (
-      id INT PRIMARY KEY,
+      id INT,
       user_id INT NOT NULL,
       title VARCHAR(100) NOT NULL,
       author VARCHAR(100),
@@ -36,7 +36,7 @@ export default function initChatDataBase() {
     db.run(queryTopic);
 
     const queryMessage = `CREATE TABLE IF NOT EXISTS message (
-      id INT PRIMARY KEY,
+      id INT,
       user_id INT NOT NULL,
       topic_id INT NOT NULL,
       content VARCHAR(100) NOT NULL,
