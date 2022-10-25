@@ -1,0 +1,5 @@
+const SALT_ROUNDS = 12;
+const JWT_CONSTENT = {
+  secret: 'Y01NGU!ARPR0J3CT72',
+};
+export { SALT_ROUNDS, JWT_CONSTENT };
